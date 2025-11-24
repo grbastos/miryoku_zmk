@@ -2,8 +2,7 @@
 # https://github.com/manna-harbour/miryoku
 
 name: 'Build gabriel'
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 jobs:
   build:
     uses: ./.github/workflows/main.yml
@@ -12,7 +11,7 @@ jobs:
       board: '["nice_nano_v2"]'
       shield: '["swweeep_left","swweeep_right"]'
       alphas: '["QWERTY"]'
-      nav: '["vi"];
+      nav: '["vi"]'
       layers: '["default"]'
       mapping: '["default"]'
       custom_config: '["default"]'
