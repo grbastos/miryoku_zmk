@@ -16,7 +16,7 @@ on:
       alphas:
         description: 'alphas'
         required: false
-        default: 'default'
+        default: 'QWERTY'
         type: choice
         options:
         - "default"
@@ -57,7 +57,7 @@ on:
       kconfig:
         description: 'kconfig'
         required: false
-        default: 'CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_DISPLAY=n'
+        default: 'CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_DISPLAY=n\nCONFIG_ZMK_SLEEP=y'
       branches:
         description: 'branches'
         required: false
