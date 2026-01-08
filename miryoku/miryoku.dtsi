@@ -51,13 +51,14 @@ MIRYOKU_LAYER_LIST
 #endif
 
 
-/ { \
-  behaviors { \
-    td_esc_baselayer: td_esc_baselayer { \
-      compatible = "zmk,behavior-tap-dance"; \
-      #binding-cells = <0>; \
-      tapping-term-ms = <U_TAPPING_TERM>; \
-      bindings = <&kp ESC>, <&to U_BASE>; \
-    }; \
-  }; \
+/ {
+  behaviors {
+    td_esc_baselayer: td_esc_baselayer {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <U_TAPPING_TERM>;
+      #bindings = <&kp ESC>, <&to U_BASE>;
+      bindings = <&kp A>, <&kp B>;
+    };
+  };
 };
