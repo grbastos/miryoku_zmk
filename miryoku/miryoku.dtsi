@@ -49,3 +49,15 @@ MIRYOKU_LAYER_LIST
 #else
   #include "miryoku_behaviors.dtsi"
 #endif
+
+
+/ { \
+  behaviors { \
+    td_esc_baselayer: td_esc_baselayer { \
+      compatible = "zmk,behavior-tap-dance"; \
+      #binding-cells = <0>; \
+      tapping-term-ms = <U_TAPPING_TERM>; \
+      bindings = <&kp ESC>, <&to U_BASE>; \
+    }; \
+  }; \
+};
