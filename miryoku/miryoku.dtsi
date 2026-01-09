@@ -14,6 +14,16 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+  behaviors {
+    td_esc_baselayer: td_esc_baselayer {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      #tapping-term-ms = <U_TAPPING_TERM>;
+      #bindings = <&kp ESC>, <&to U_BASE>;
+      bindings = <&kp A>, <&kp B>;
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
 #define MIRYOKU_X(LAYER, STRING) \
@@ -50,15 +60,3 @@ MIRYOKU_LAYER_LIST
   #include "miryoku_behaviors.dtsi"
 #endif
 
-
-/ {
-  behaviors {
-    td_esc_baselayer: td_esc_baselayer {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <U_TAPPING_TERM>;
-      #bindings = <&kp ESC>, <&to U_BASE>;
-      bindings = <&kp A>, <&kp B>;
-    };
-  };
-};
