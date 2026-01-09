@@ -14,12 +14,29 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+  macros {
+    u_macro_ecircum: u_macro_ecircum {
+      compatible = "zmk,behavior-macro";
+      bindings = <&kp RA(CARET) &kp E>;
+    };
+  };
   behaviors {
-    td_esc_baselayer: td_esc_baselayer {
+    u_td_esc_baselayer: td_esc_baselayer {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp ESC>, <&to U_BASE>;
+    };
+    u_td_altr_e: u_td_altr_e {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      #tapping-term-ms = <U_TAPPING_TERM>;
+      bindings = <&kp RA(CARET)>, <&u_macro_ecircum>;
+    };
+    u_ra_e: u_ra_e {
+      compatible = "zmk,behavior-mod-morph";
+      bindings = <&kp E>, <&u_td_altr_e>;
+      mods = (MOD_RALT);
     };
   };
 
