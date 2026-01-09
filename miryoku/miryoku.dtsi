@@ -36,7 +36,7 @@
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
       bindings = <&kp E>, <&u_td_altr_e>;
-      mods = (MOD_RALT);
+      mods = <(MOD_RALT)>;
     };
   };
 
