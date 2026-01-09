@@ -19,8 +19,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
-      #bindings = <&kp ESC>, <&to U_BASE>;
-      bindings = <&kp A>, <&kp B>;
+      bindings = <&kp ESC>, <&to U_BASE>;
     };
   };
 
