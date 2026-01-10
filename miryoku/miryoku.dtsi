@@ -21,7 +21,8 @@
       wait-ms = <40>;
       tap-ms = <40>;
       bindings
-        = <&macro_param_1to1>
+        = <&none>
+        , <&macro_param_1to1>
         , <&kp MACRO_PLACEHOLDER>
         , <&macro_param_2to1>
         , <&kp MACRO_PLACEHOLDER>
@@ -47,17 +48,20 @@
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp RA(A)>, <&u_macro_2kp RA(N6) A>;
     };
+    /*
     u_td_altr_sft_a_rmaltr: u_td_altr_sft_a_rmaltr {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&u_macro_2kp RA(N6) LS(A)>, <&u_macro_2kp RA(N6) LS(A)>;
       mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT)>;
     };
+    */
     u_td_altr_sft_a: u_td_altr_sft_a {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp LS(RA(A))>, <&u_td_altr_sft_a_rmaltr>;
+      //bindings = <&kp LS(RA(A))>, <&u_td_altr_sft_a_rmaltr>;
+      bindings = <&kp LS(RA(A))>, <&u_macro_2kp RA(N6) LS(A)>;
     };
     u_ra_sft_a: u_ra_sft_a {
       compatible = "zmk,behavior-mod-morph";
