@@ -17,6 +17,7 @@
   macros {
     u_macro_ecircum: u_macro_ecircum {
       compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
       bindings = <&kp RA(CARET) &kp E>;
     };
   };
@@ -35,6 +36,7 @@
     };
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
       bindings = <&kp E>, <&u_td_altr_e>;
       mods = <(MOD_RALT)>;
     };
