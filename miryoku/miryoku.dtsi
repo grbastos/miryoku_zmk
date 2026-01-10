@@ -52,7 +52,7 @@
       bindings = <&u_td_altr_a>, <&u_td_altr_sft_a>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
       keep-mods = <(MOD_LSFT|MOD_RSFT)>;
-    }
+    };
     //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
     u_ra_e: u_ra_a {
       compatible = "zmk,behavior-mod-morph";
@@ -80,7 +80,7 @@
       bindings = <&u_td_altr_e>, <&u_td_altr_sft_e>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
       keep-mods = <(MOD_LSFT|MOD_RSFT)>;
-    }
+    };
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
