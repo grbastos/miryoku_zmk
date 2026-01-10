@@ -51,13 +51,13 @@
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
       //bindings = <&kp RA(A)>, <&u_macro_acircum>;
-      bindings = <&kp RA(A)>, <&u_macro_2k RA(N6) A>;
+      bindings = <&kp RA(A)>, <&u_macro_2kp RA(N6) A>;
     };
     u_td_altr_sft_a_rmaltr: u_td_altr_sft_a_rmaltr {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       //bindings = <&u_macro_acircum>, <&u_macro_acircum>;
-      bindings = <&u_macro_2k RA(N6) LS(A)>, <&u_macro_2k RA(N6) LS(A)>;
+      bindings = <&u_macro_2kp RA(N6) LS(A)>, <&u_macro_2kp RA(N6) LS(A)>;
       mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT)>;
     };
     u_td_altr_sft_a: u_td_altr_sft_a {
