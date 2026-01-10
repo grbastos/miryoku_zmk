@@ -46,7 +46,7 @@
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp LS(RA(A))>, <&u_macro_acircum>;
     };
-    u_ra_sft_a : u_ra_sft_a {
+    u_ra_sft_a: u_ra_sft_a {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&u_td_altr_a>, <&u_td_altr_sft_a>;
