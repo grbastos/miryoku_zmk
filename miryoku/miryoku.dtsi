@@ -18,7 +18,7 @@
     u_macro_acircum: u_macro_acircum {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&kp RA(N6) &kp STRIP_MODS(A)>;
+      bindings = <&kp RA(N6) &kp A>;
     };
     u_macro_ecircum: u_macro_ecircum {
       compatible = "zmk,behavior-macro";
@@ -40,18 +40,23 @@
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp RA(A)>, <&u_macro_acircum>;
     };
+    u_td_altr_sft_a_rmaltr: u_td_altr_sft_a_rmaltr {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&u_macro_acircum>, <&u_macro_acircum>;
+      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT)>;
+    };
     u_td_altr_sft_a: u_td_altr_sft_a {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp LS(RA(A))>, <&u_macro_acircum>;
+      bindings = <&kp LS(RA(A))>, <&u_td_altr_sft_a_rmaltr>;
     };
     u_ra_sft_a: u_ra_sft_a {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&u_td_altr_a>, <&u_td_altr_sft_a>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
-      //keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
     u_ra_a: u_ra_a {
