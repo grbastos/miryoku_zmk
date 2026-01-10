@@ -15,6 +15,11 @@
 
 / {
   macros {
+    u_macro_ecircum: u_macro_acircum {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp RA(N6) &kp A>;
+    };
     u_macro_ecircum: u_macro_ecircum {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
@@ -22,24 +27,67 @@
     };
   };
   behaviors {
-    u_td_esc_baselayer: td_esc_baselayer {
+    u_td_esc_baselayer: u_td_esc_baselayer {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp ESC>, <&to U_BASE>;
     };
+
+    u_td_altr_e: u_td_altr_a {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      #tapping-term-ms = <U_TAPPING_TERM>;
+      bindings = <&kp RA(A)>, <&u_macro_acircum>;
+    };
+    u_td_altr_e: u_td_altr_sft_a {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      #tapping-term-ms = <U_TAPPING_TERM>;
+      bindings = <&kp LS(RA(A))>, <&u_macro_acircum>;
+    };
+    u_ra_sft_a {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&u_td_altr_a>, <&u_td_altr_sft_a>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+    }
+    //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
+    u_ra_e: u_ra_a {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&u_mt LGUI A>, <&u_td_altr_a>;
+      mods = <(MOD_RALT)>;
+    };
+
+
     u_td_altr_e: u_td_altr_e {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
       bindings = <&kp RA(E)>, <&u_macro_ecircum>;
     };
+    u_td_altr_e: u_td_altr_sft_e {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      #tapping-term-ms = <U_TAPPING_TERM>;
+      bindings = <&kp LS(RA(E))>, <&u_macro_ecircum>;
+    };
+    u_ra_sft_e {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&u_td_altr_e>, <&u_td_altr_sft_e>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+    }
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp E>, <&u_td_altr_e>;
       mods = <(MOD_RALT)>;
     };
+
   };
 
   keymap {
