@@ -51,7 +51,7 @@
       #binding-cells = <0>;
       bindings = <&u_td_altr_a>, <&u_td_altr_sft_a>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
-      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+      //keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
     u_ra_a: u_ra_a {
@@ -60,7 +60,6 @@
       bindings = <&u_mt LGUI A>, <&u_ra_sft_a>;
       mods = <(MOD_RALT)>;
     };
-
 
     u_td_altr_e: u_td_altr_e {
       compatible = "zmk,behavior-tap-dance";
