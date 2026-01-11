@@ -44,7 +44,7 @@
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp RA(N6)>, <&kp RA(N6)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
+      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT)>;
     };
 
     u_td_altr_a: u_td_altr_a {
