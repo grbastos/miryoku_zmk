@@ -62,7 +62,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp RA(A)>, <&u_macro_dead_circunflex_kp E>;
+      bindings = <&kp RA(E)>, <&u_macro_dead_circunflex_kp E>;
     };
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
