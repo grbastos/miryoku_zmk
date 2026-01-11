@@ -13,7 +13,7 @@
 
 #include <dt-bindings/zmk/pointing.h>
 
-#define ALTR_DEADKEY_MACRO(NAME, BINDING_DEFAULT, BINDING_TP1, BINDING_TP2) \
+#define RALT_DEADKEY_MACRO(NAME, BINDING_DEFAULT, BINDING_TP1, BINDING_TP2) \
     NAME ## _td: NAME ## _td { \
       compatible = "zmk,behavior-tap-dance"; \
       #binding-cells = <0>; \
@@ -27,8 +27,8 @@
       mods = <(MOD_RALT)>; \
     };
 
-#define ALTR_DEADKEY_CIRCUNFLEX_MACRO(NAME, BINDING_DEFAULT, KEY) \
-  ALTR_DEADKEY_MACRO(NAME, BINDING_DEFAULT, &kp RA(KEY), &u_macro_dead_circunflex_kp KEY)
+#define RALT_DEADKEY_CIRCUNFLEX_MACRO(NAME, BINDING_DEFAULT, KEY) \
+  RALT_DEADKEY_MACRO(NAME, BINDING_DEFAULT, &kp RA(KEY), &u_macro_dead_circunflex_kp KEY)
 
 / {
   macros {
@@ -39,6 +39,32 @@
       tap-ms = <40>;
       bindings
         = <&u_dead_circunflex>
+        , <&macro_release &kp RALT>
+        , <&macro_param_1to1>
+        , <&macro_tap &kp MACRO_PLACEHOLDER>
+        , <&macro_press &kp RALT>
+        ;
+    };
+    u_macro_dead_tilde_kp:u_macro_dead_tilde_kp {
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings
+        = <&kp LS(RA(GRAVE)>
+        , <&macro_release &kp RALT>
+        , <&macro_param_1to1>
+        , <&macro_tap &kp MACRO_PLACEHOLDER>
+        , <&macro_press &kp RALT>
+        ;
+    };
+    u_macro_dead_grave_kp:u_macro_dead_grave_kp {
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings
+        = <&u_dead_grave>
         , <&macro_release &kp RALT>
         , <&macro_param_1to1>
         , <&macro_tap &kp MACRO_PLACEHOLDER>
@@ -60,10 +86,19 @@
       bindings = <&kp RA(N6)>, <&kp RA(N6)>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    u_dead_grave: u_dead_grave {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp RA(GRAVE)>, <&kp RA(GRAVE)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
 
-    //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
-    ALTR_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_a, &u_mt LGUI A, A)
-    ALTR_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_e, &kp E, E)
+    //TODO a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
+    RALT_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_a, &u_mt LGUI A, A)
+    RALT_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_e, &kp E, E)
+    RALT_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_o, &kp O, O)
+    RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_macro_dead_tilde_kp O, &kp RA(P))
+    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_macro_dead_grave_kp A)
   };
 
   keymap {
