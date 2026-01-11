@@ -63,7 +63,7 @@
       mods = <(MOD_RALT)>;
     };
 
-    u_td_altr_sft_e: u_td_altr_sft_e {
+    u_td_altr_e: u_td_altr_e {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
