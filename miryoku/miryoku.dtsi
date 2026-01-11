@@ -22,8 +22,11 @@
       tap-ms = <40>;
       bindings
         = <&u_dead_circunflex>
+        , <&macro_release &kp RALT>,
         , <&macro_param_1to1>
         , <&kp MACRO_PLACEHOLDER>
+        , <&macro_param_1to1> //teste
+        , <&kp MACRO_PLACEHOLDER> //teste
         ;
     };
     u_macro_ecircum: u_macro_ecircum {
