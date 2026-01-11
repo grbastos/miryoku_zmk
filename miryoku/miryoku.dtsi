@@ -28,11 +28,6 @@
         , <&macro_press &kp RALT>
         ;
     };
-    u_macro_ecircum: u_macro_ecircum {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp RA(N6) &kp E>;
-    };
   };
   behaviors {
     u_td_esc_baselayer: u_td_esc_baselayer {
@@ -67,7 +62,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp LS(RA(E))>, <&u_macro_ecircum>;
+      bindings = <&kp RA(A)>, <&u_macro_dead_circunflex_kp E>;
     };
     u_ra_e: u_ra_e {
       compatible = "zmk,behavior-mod-morph";
