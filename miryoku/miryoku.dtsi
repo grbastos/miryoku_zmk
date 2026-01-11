@@ -13,6 +13,23 @@
 
 #include <dt-bindings/zmk/pointing.h>
 
+#define ALTR_DEADKEY_MACRO(NAME, BINDING_DEFAULT, BINDING_TP1, BINDING_TP2) \
+    NAME ## _td: NAME ## _td { \
+      compatible = "zmk,behavior-tap-dance"; \
+      #binding-cells = <0>; \
+      #tapping-term-ms = <U_TAPPING_TERM>; \
+      bindings = <BINDING_TP1>, <BINDING_TP2>; \
+    }; \
+    NAME: NAME { \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <BINDING_DEFAULT>, <&NAME ## _td>; \
+      mods = <(MOD_RALT)>; \
+    };
+
+#define ALTR_DEADKEY_CIRCUNFLEX_MACRO(NAME, BINDING_DEFAULT, KEY) \
+  ALTR_DEADKEY_MACRO(NAME, BINDING_DEFAULT, &kp RA(KEY), &u_macro_dead_circunflex_kp KEY)
+
 / {
   macros {
     u_macro_dead_circunflex_kp: u_macro_dead_circunflex_kp {
@@ -44,33 +61,9 @@
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    u_td_altr_a: u_td_altr_a {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp RA(A)>, <&u_macro_dead_circunflex_kp A>;
-    };
     //a macro U_MT nao estah definida aqui entao vamos usar &u_mt direto porem isto ignora evenhtual define MIRYOKU_KLUDGE_TAPDELAY
-    u_ra_a: u_ra_a {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&u_mt LGUI A>, <&u_td_altr_a>;
-      mods = <(MOD_RALT)>;
-    };
-
-    u_td_altr_e: u_td_altr_e {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      #tapping-term-ms = <U_TAPPING_TERM>;
-      bindings = <&kp RA(E)>, <&u_macro_dead_circunflex_kp E>;
-    };
-    u_ra_e: u_ra_e {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp E>, <&u_td_altr_e>;
-      mods = <(MOD_RALT)>;
-    };
-
+    ALTR_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_a, &u_mt LGUI A, A)
+    ALTR_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_e, &kp E, E)
   };
 
   keymap {
