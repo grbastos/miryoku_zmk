@@ -39,10 +39,10 @@
       tap-ms = <40>;
       bindings
         = <&u_dead_circunflex>
-        , <&macro_release &kp RALT>
+        , <&kt RALT>
         , <&macro_param_1to1>
-        , <&macro_tap &kp MACRO_PLACEHOLDER>
-        , <&macro_press &kp RALT>
+        , <&kp MACRO_PLACEHOLDER>
+        , <&kt RALT>
         ;
     };
     u_macro_dead_tilde_kp: u_macro_dead_tilde_kp {
@@ -52,10 +52,10 @@
       tap-ms = <40>;
       bindings
         = <&kp LS(RA(GRAVE))>
-        , <&macro_release &kp RALT>
+        , <&kt RALT>
         , <&macro_param_1to1>
-        , <&macro_tap &kp MACRO_PLACEHOLDER>
-        , <&macro_press &kp RALT>
+        , <&kp MACRO_PLACEHOLDER>
+        , <&kt RALT>
         ;
     };
     u_macro_dead_grave_kp: u_macro_dead_grave_kp {
@@ -65,10 +65,10 @@
       tap-ms = <40>;
       bindings
         = <&u_dead_grave>
-        , <&macro_release &kp RALT>
+        , <&kt RALT>
         , <&macro_param_1to1>
-        , <&macro_tap &kp MACRO_PLACEHOLDER>
-        , <&macro_press &kp RALT>
+        , <&kp MACRO_PLACEHOLDER>
+        , <&kt RALT>
         ;
     };
   };
