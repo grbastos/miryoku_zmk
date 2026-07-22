@@ -99,6 +99,7 @@
     RALT_DEADKEY_CIRCUNFLEX_MACRO(u_ralt_o, &kp O, O)
     RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_macro_dead_tilde_kp O, &kp RA(P))
     RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_macro_dead_grave_kp A)
+    RALT_DEADKEY_MACRO(u_ralt_c, &kp C, &kp RA(COMMA), &kp RA(C))
   };
 
   keymap {
