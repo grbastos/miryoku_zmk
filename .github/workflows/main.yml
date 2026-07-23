@@ -245,6 +245,7 @@ jobs:
           repo=`echo "$zmk" | cut -f 2 -d '/'`
           branch=`echo "$zmk" | cut -f 3- -d '/'`
           git clone -b "$branch" --depth 1 "https://github.com/$user/$repo.git" 'zmk'
+          echo "apagar gabriel aquiaqui branches $branches"
           echo "apagar gabriel aquiaqui git clone -b $branch --depth 1 https://github.com/$user/$repo.git zmk"
           echo "::endgroup::"
 
