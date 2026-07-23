@@ -71,7 +71,7 @@ jobs:
       MIRYOKU_DEBUG: ${{ secrets.MIRYOKU_DEBUG }}
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: 'miryoku_zmk'
           ref: '2026-01-11'
@@ -296,7 +296,7 @@ jobs:
           echo "::endgroup::"
       - name: cache
         if: true
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             zmk/modules/
@@ -369,7 +369,7 @@ jobs:
           test "$MIRYOKU_DEBUG" = 'MIRYOKU_DEBUG_TRUE' && cp "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/.config" "${{ steps.main.outputs.artifact_dir }}"
           echo "::endgroup::"
       - name: upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.main.outputs.run_name }}
           path: ${{ steps.main.outputs.artifact_dir }}
