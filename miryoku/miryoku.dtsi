@@ -86,12 +86,18 @@
       bindings = <&u_dead_grave_kp_a_s2>, <&u_dead_grave_kp_a_s2>;
       mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>;
     };
-    u_dead_grave_kp_a_ns: u_dead_grave_kp_a_ns {
+    u_dead_grave_kp_a_ns2: u_dead_grave_kp_a_ns2 {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <40>;
       tap-ms = <40>;
       bindings = <&kp RA(GRAVE)>, <&kp A>;
+    };
+    u_dead_grave_kp_a_ns: u_dead_grave_kp_a_ns {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&u_dead_grave_kp_a_ns2>, <&u_dead_grave_kp_a_ns2>;
+      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>;
     };
     u_dead_grave_kp_a: u_dead_grave_kp_a {
       compatible = "zmk,behavior-mod-morph";
