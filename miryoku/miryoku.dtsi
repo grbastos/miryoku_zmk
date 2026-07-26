@@ -57,16 +57,6 @@
         , <&kt RALT>
         ;
     };
-    u_macro_dead_grave_kp_a: u_macro_dead_grave_kp_a {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings
-        = <&u_dead_grave>
-        , <&u_macro_dead_grave_kp_a2>
-        ;
-    };
   };
   behaviors {
     u_td_esc_baselayer: u_td_esc_baselayer {
@@ -82,25 +72,33 @@
       bindings = <&kp RA(N6)>, <&kp RA(N6)>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    u_dead_grave: u_dead_grave {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(GRAVE)>, <&kp RA(GRAVE)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
 
-    u_macro_dead_grave_kp_a2: u_macro_dead_grave_kp_a2 {
+    u_dead_grave_kp_a2s: u_dead_grave_kp_a2s {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings = <&kp RA(GRAVE)>, <&kp LS(A)>;
+    };
+    u_dead_grave_kp_a2ns: u_dead_grave_kp_a2ns {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings = <&kp RA(GRAVE)>, <&kp A>;
+    };
+    u_dead_grave_kp_a: u_dead_grave_kp_a {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp A>, <&kp A>;
-      mods = <(MOD_RALT|MOD_LCTL)>;
+      bindings = <&u_dead_grave_kp_a2ns>, <&u_dead_grave_kp_a2s>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
     RALT_DEADKEY_MACRO(u_ralt_a, &u_mt LGUI A, &kp RA(A), &u_macro_dead_circunflex_kp A)
     RALT_DEADKEY_MACRO(u_ralt_e, &kp E, &kp RA(E), &u_macro_dead_circunflex_kp E)
     RALT_DEADKEY_MACRO(u_ralt_o, &kp O, &kp RA(O), &u_macro_dead_circunflex_kp O)
     RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_macro_dead_tilde_kp O, &kp RA(P))
-    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_macro_dead_grave_kp_a)
+    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_dead_grave_kp_a)
     RALT_DEADKEY_MACRO(u_ralt_c, &kp C, &kp RA(COMMA), &kp RA(C))
   };
 
