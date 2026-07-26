@@ -57,15 +57,14 @@
         , <&kt RALT>
         ;
     };
-    u_macro_dead_grave_kp: u_macro_dead_grave_kp {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
+    u_macro_dead_grave_kp_a: u_macro_dead_grave_kp_a {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
       wait-ms = <40>;
       tap-ms = <40>;
       bindings
         = <&u_dead_grave>
-        , <&macro_param_1to1>
-        , <&kp MACRO_PLACEHOLDER>
+        , <&kp A>
         ;
     };
   };
@@ -94,7 +93,7 @@
     RALT_DEADKEY_MACRO(u_ralt_e, &kp E, &kp RA(E), &u_macro_dead_circunflex_kp E)
     RALT_DEADKEY_MACRO(u_ralt_o, &kp O, &kp RA(O), &u_macro_dead_circunflex_kp O)
     RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_macro_dead_tilde_kp O, &kp RA(P))
-    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_macro_dead_grave_kp A)
+    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_macro_dead_grave_kp_a)
     RALT_DEADKEY_MACRO(u_ralt_c, &kp C, &kp RA(COMMA), &kp RA(C))
   };
 
