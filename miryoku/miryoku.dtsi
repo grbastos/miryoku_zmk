@@ -78,14 +78,7 @@
       #binding-cells = <0>;
       wait-ms = <40>;
       tap-ms = <40>;
-      bindings
-        = <&macro_press &kp RALT>
-        , <&kp GRAVE>
-        , <&macro_release &kp RALT>
-        , <&macro_press &kp LSHIFT>
-        , <&kp A>
-        , <&macro_release &kp LSHIFT>
-        ;
+      bindings = <&kp RA(GRAVE)>, <&kp A>;
     };
     u_dead_grave_kp_a_s: u_dead_grave_kp_a_s {
       compatible = "zmk,behavior-mod-morph";
