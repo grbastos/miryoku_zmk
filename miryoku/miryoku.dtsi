@@ -37,8 +37,10 @@
       bindings
         = <&u_dead_circunflex>
         , <&kt RALT>
+        , <&kt LCTRL>
         , <&macro_param_1to1>
         , <&kp MACRO_PLACEHOLDER>
+        , <&kt LCTRL>
         , <&kt RALT>
         ;
     };
@@ -50,8 +52,10 @@
       bindings
         = <&kp LS(RA(GRAVE))>
         , <&kt RALT>
+        , <&kt LCTRL>
         , <&macro_param_1to1>
         , <&kp MACRO_PLACEHOLDER>
+        , <&kt LCTRL>
         , <&kt RALT>
         ;
     };
