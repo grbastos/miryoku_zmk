@@ -78,7 +78,14 @@
       #binding-cells = <0>;
       wait-ms = <40>;
       tap-ms = <40>;
-      bindings = <&kp RA(GRAVE)>, <&kp LS(A)>;
+      bindings
+        = <&macro_press &kp RALT>
+        , <&kp GRAVE>
+        , <&macro_release &kp RALT>
+        , <&macro_press &kp LSHIFT>
+        , <&kp A>
+        , <&macro_release &kp LSHIFT>
+        ;
     };
     u_dead_grave_kp_a2ns: u_dead_grave_kp_a2ns {
       compatible = "zmk,behavior-macro";
