@@ -57,6 +57,12 @@
         , <&kt RALT>
         ;
     };
+    u_macro_dead_grave_kp_a2: u_macro_dead_grave_kp_a2 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp A>, <&kp A>;
+      mods = <(MOD_RALT|MOD_LCTL)>;
+    };
     u_macro_dead_grave_kp_a: u_macro_dead_grave_kp_a {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
@@ -64,7 +70,7 @@
       tap-ms = <40>;
       bindings
         = <&u_dead_grave>
-        , <&kp A>
+        , <&u_macro_dead_grave_kp_a2>
         ;
     };
   };
