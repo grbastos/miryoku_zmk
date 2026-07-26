@@ -63,8 +63,12 @@
       wait-ms = <40>;
       tap-ms = <40>;
       bindings
-        = <&kp RA(GRAVE)>
-        , <&kp LS(A)>
+        = <&macro_press &kp RALT>
+        , <&macro_tap &kp GRAVE>
+        , <&macro_release &kp RALT>
+        , <&macro_press &kp LSHFT>
+        , <&macro_tap &kp A>
+        , <&macro_release &kp LSHFT>
         ;
     };
     u_grave_a_nomod_sft: u_grave_a_nomod_sft {
@@ -73,8 +77,10 @@
       wait-ms = <40>;
       tap-ms = <40>;
       bindings
-        = <&kp RA(GRAVE)>
-        , <&kp A>
+        = <&macro_press &kp RALT>
+        , <&macro_tap &kp GRAVE>
+        , <&macro_release &kp RALT>
+        , <&macro_tap &kp A>
         ;
     };
     u_grave_a: u_grave_a {
