@@ -77,7 +77,7 @@
         , <&kp A>
         ;
     };
-    u_grave_a : u_grave_a {
+    u_grave_a: u_grave_a {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&u_grave_a_nomod_sft>, <&u_grave_a_mod_sft>;
