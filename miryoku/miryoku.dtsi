@@ -49,7 +49,7 @@
       bindings = <&NAME ## _s2>, <&NAME ## _s2>; \
       mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>; \
     }; \
-    NAME ## _ns: NAME _ns { \
+    NAME ## _ns: NAME ## _ns { \
       compatible = "zmk,behavior-mod-morph"; \
       #binding-cells = <0>; \
       bindings = <&NAME ## _ns2>, <&NAME ## _ns2>; \
