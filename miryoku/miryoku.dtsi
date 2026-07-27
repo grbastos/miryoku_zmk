@@ -27,36 +27,58 @@
       mods = <(MOD_RALT)>; \
     };
 
+//exemplo parametros: u_dead_circunflex_kp_a, RA(N6), A
+#define DEADKEY_PLUS_LETTER_MACRO(NAME, DEADKEY_KP, LETTER_KP) \
+    NAME ## _s2: NAME ## _s2 { \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      wait-ms = <40>; \
+      tap-ms = <40>; \
+      bindings = <&kp DEADKEY_KP>, <&kp LS(LETTER_KP)>; \
+    }; \
+    NAME ## _ns2: NAME ## _ns2 { \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      wait-ms = <40>; \
+      tap-ms = <40>; \
+      bindings = <&kp DEADKEY_KP>, <&kp LETTER_KP>; \
+    }; \
+    NAME ## _s: NAME ## _s { \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <&NAME ## _s2>, <&NAME ## _s2>; \
+      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>; \
+    }; \
+    NAME ## _ns: NAME _ns { \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <&NAME ## _ns2>, <&NAME ## _ns2>; \
+      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>; \
+    }; \
+    NAME: NAME { \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <&NAME ## _ns>, <&NAME ## _s>; \
+      mods = <(MOD_LSFT|MOD_RSFT)>; \
+    };
+
+#define DEADKEY_PLUS_LETTER_IGNORE_SHIFT_MACRO(NAME, DEADKEY_KP, LETTER_KP) \
+    NAME ## _2: NAME ## _2 { \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      wait-ms = <40>; \
+      tap-ms = <40>; \
+      bindings = <&kp DEADKEY_KP>, <&kp LETTER_KP>; \
+    }; \
+    NAME: NAME { \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <&NAME ## _2>, <&NAME ## _2>; \
+      mods = <(MOD_RALT|MOD_LCTL)>; \
+    };
+
 / {
   macros {
-    u_macro_dead_circunflex_kp: u_macro_dead_circunflex_kp {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings
-        = <&u_dead_circunflex>
-        , <&kt RALT>
-        , <&kt LCTRL>
-        , <&macro_param_1to1>
-        , <&kp MACRO_PLACEHOLDER>
-        , <&kt LCTRL>
-        , <&kt RALT>
-        ;
-    };
-    u_macro_dead_tilde_kp: u_macro_dead_tilde_kp {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings
-        = <&kp LS(RA(GRAVE))>
-        , <&kt RALT>
-        , <&macro_param_1to1>
-        , <&kp MACRO_PLACEHOLDER>
-        , <&kt RALT>
-        ;
-    };
   };
   behaviors {
     u_td_esc_baselayer: u_td_esc_baselayer {
@@ -66,53 +88,18 @@
       bindings = <&kp ESC>, <&to U_BASE>;
     };
 
-    u_dead_circunflex: u_dead_circunflex {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(N6)>, <&kp RA(N6)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
+    DEADKEY_PLUS_LETTER_MACRO(u_dead_circunflex_kp_a, RA(N6), A)
+    DEADKEY_PLUS_LETTER_MACRO(u_dead_circunflex_kp_e, RA(N6), E)
+    DEADKEY_PLUS_LETTER_MACRO(u_dead_circunflex_kp_o, RA(N6), O)
+    DEADKEY_PLUS_LETTER_IGNORE_SHIFT_MACRO(u_dead_tilde_kp_o, LS(RA(GRAVE)), O)
+    DEADKEY_PLUS_LETTER_IGNORE_SHIFT_MACRO(u_dead_tilde_kp_a, LS(RA(GRAVE)), A)
+    DEADKEY_PLUS_LETTER_MACRO(u_dead_grave_kp_a, RA(GRAVE), A)
 
-    //----
-    u_dead_grave_kp_a_s2: u_dead_grave_kp_a_s2 {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings = <&kp RA(GRAVE)>, <&kp LS(A)>;
-    };
-    u_dead_grave_kp_a_ns2: u_dead_grave_kp_a_ns2 {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings = <&kp RA(GRAVE)>, <&kp A>;
-    };
-    u_dead_grave_kp_a_s: u_dead_grave_kp_a_s {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&u_dead_grave_kp_a_s2>, <&u_dead_grave_kp_a_s2>;
-      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>;
-    };
-    u_dead_grave_kp_a_ns: u_dead_grave_kp_a_ns {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&u_dead_grave_kp_a_ns2>, <&u_dead_grave_kp_a_ns2>;
-      mods = <(MOD_LSFT|MOD_RSFT|MOD_RALT|MOD_LCTL)>;
-    };
-    u_dead_grave_kp_a: u_dead_grave_kp_a {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&u_dead_grave_kp_a_ns>, <&u_dead_grave_kp_a_s>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    //----
-
-    RALT_DEADKEY_MACRO(u_ralt_a, &u_mt LGUI A, &kp RA(A), &u_macro_dead_circunflex_kp A)
-    RALT_DEADKEY_MACRO(u_ralt_e, &kp E, &kp RA(E), &u_macro_dead_circunflex_kp E)
-    RALT_DEADKEY_MACRO(u_ralt_o, &kp O, &kp RA(O), &u_macro_dead_circunflex_kp O)
-    RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_macro_dead_tilde_kp O, &kp RA(P))
-    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_macro_dead_tilde_kp A, &u_dead_grave_kp_a)
+    RALT_DEADKEY_MACRO(u_ralt_a, &u_mt LGUI A, &kp RA(A), &u_dead_circunflex_kp_a)
+    RALT_DEADKEY_MACRO(u_ralt_e, &kp E, &kp RA(E), &u_dead_circunflex_kp_e)
+    RALT_DEADKEY_MACRO(u_ralt_o, &kp O, &kp RA(O), &u_dead_circunflex_kp_o)
+    RALT_DEADKEY_MACRO(u_ralt_p, &kp P, &u_dead_tilde_kp_o, &kp RA(P))
+    RALT_DEADKEY_MACRO(u_ralt_q, &kp Q, &u_dead_tilde_kp_a, &u_dead_grave_kp_a)
     RALT_DEADKEY_MACRO(u_ralt_c, &kp C, &kp RA(COMMA), &kp RA(C))
   };
 
